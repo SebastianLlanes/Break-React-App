@@ -1,0 +1,408 @@
+html {
+  /*Screen Dimensions*/
+  margin: 0 auto;
+  padding: 0.1rem;
+  max-width: 600px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* CSS HEX */
+  --yellow: #ffd316;
+  --smoky-black: #000000;
+  --white: #f8f8f8 
+
+/*Fonts*/
+  --font-family-titles:  'Gochi Hand', cursive;
+  --font-family-descriptions:  'Asap', sans-serif;
+  --size-s: 0.8rem;
+  --size-m: 1rem;
+  --size-l: 1.2rem;
+
+/*Background*/
+  
+  
+}
+body {
+  margin: 0%;
+  height: 100%;
+  width: 100%;
+}
+#root {
+  margin: 0 auto;
+  max-width: 600px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+} 
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background-image: url(./assets/img/xplodebg.jpg);
+  background-size: 188% 96%;
+  background-position: center;
+}
+.home div img {
+  width: 320px
+}
+.div-botones-portada, .drinks-div-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.div-botones-portada button, .drinks-div-buttons button, .food-div-buttons button {
+  width: 120px;
+  height: 38px;
+  margin: 10px 10px;
+  background-color: var(--smoky-black);
+  border: 1px solid var(--yellow);
+  border-radius: 5px;
+  font-family: var(--font-family-descriptions);
+  font-size: var(--size-l);
+  color: #f8f8f8;
+}
+.div-botones-portada button:active, .drinks-div-buttons button:active, .food-div-buttons button:active {
+  width: 120px;
+  height: 38px;
+  margin: 10px 10px;
+  background-color: var(--yellow);
+  border: 1px solid var(--smoky-black);
+  border-radius: 12px;
+  font-family: var(--font-family-descriptions);
+  font-size: var(--size-l);
+  color: var(--smoky-black);
+  transition-property: width, height, margin, background-color, border, border-radius, font-family, font-size, color;
+  transition-duration: 0.3s; 
+}
+/*Food page styles*/
+.food-header {
+  width: 100%;
+  height: 20%;
+  background-color: var(--smoky-black);
+}
+.food {
+  display: flex;
+  flex-direction: column;
+  background-image: url(./assets/img/texturayellow.jpg);
+  padding-left: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+}
+.food-header img {
+  width: 150px;
+}
+.food h2 {
+  margin-bottom: 4px;
+  font-family: 'Gochi Hand', cursive;
+  backdrop-filter: blur(14px);
+}
+.food li {
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+}
+.food h4 {
+  margin: 0;
+  font-family: var(--font-family-descriptions);
+  font-weight: 400;
+}
+#categoriaUsuario {
+  width: 100px;
+  position: fixed;
+  top: 60px;
+  right: -4px;
+  background-color: var(--smoky-black);
+  padding: 16px;
+  box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 5px rgb(0 0 0 / 28%), 0.3em 0.3em 1em rgba(0, 0, 0, 1.3);
+  border-bottom-left-radius: 16px;
+    border-start-start-radius: 16px;
+  z-index: 9999;
+  font-size: var(--size-m);
+  font-weight: bolder;
+  font-family: var(--font-family-descriptions);
+  color: var(--yellow);
+}
+.food-div-papas {
+  display: flex;
+  flex-direction: column;
+}
+.food-div-papas ul {
+  margin: 0px 40px 24px 0;
+}
+.food-div-papas ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+}
+.food-div-papas span {
+  width: 44px;
+  border: 1px solid var(--smoky-black);
+  border-radius: 6px;
+  padding: 4px;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+.food-div-hamburguer {
+  display: flex;
+  flex-direction: column;
+}
+.food-div-hamburguer ul li {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 26px 40px;
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+}
+.food-div-hamburguer span {
+  width: 44px;
+  border: 1px solid var(--smoky-black);
+  border-radius: 6px;
+  padding: 4px;
+  background-color: #f8f8f8;
+  text-align: center;
+  align-self: center;
+}
+.food-div-hamburguer ul li p {
+  margin-top: 0;
+  font-weight: 400;
+}
+.food-div-sandwich {
+  display: flex;
+  flex-direction: column;
+}
+.food-div-sandwich div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 24px;
+  margin-bottom: -20px;
+  font-family: var(--font-family-descriptions);
+}
+.food-div-sandwich ul li {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 34px 10px;
+  margin-bottom: 10px;
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+}
+.food-div-sandwich span {
+  width: 44px;
+  border: 1px solid var(--smoky-black);
+  border-radius: 6px;
+  padding: 4px;
+  background-color: #f8f8f8;
+  text-align: center;
+  align-self: center;
+}
+.food-div-sandwich ul li p {
+  margin-top: 0;
+  font-weight: 400;
+}
+.food-div-minutas {
+  display: flex;
+  flex-direction: column;
+}
+.food-div-minutas div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-right: 40px;
+  margin-bottom: -20px;
+  font-family: var(--font-family-descriptions);
+}
+.food-div-minutas ul li {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 34px 10px;
+  margin-bottom: 10px;
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+}
+.food-div-minutas span {
+  width: 44px;
+  border: 1px solid var(--smoky-black);
+  border-radius: 6px;
+  padding: 4px;
+  background-color: #f8f8f8;
+  text-align: center;
+  align-self: center;
+}
+.food-div-minutas ul li p {
+  margin-top: 0;
+  font-weight: 400;
+}
+.food-div-picadas {
+  display: flex;
+  flex-direction: column;
+}
+.food-div-picadas ul {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-rows: 58px 24px;
+  margin: 0px 40px 24px 0;
+  justify-items: end;
+}
+.food-div-picadas ul li {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+}
+.food-div-picadas span {
+  width: 44px;
+  height: 20px;
+  border: 1px solid var(--smoky-black);
+  border-radius: 6px;
+  padding: 4px;
+  background-color: #f8f8f8;
+  text-align: center;
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+}
+.food-div-pizzas {
+  display: flex;
+  flex-direction: column;
+}
+.food-div-pizzas div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-family: var(--font-family-descriptions);
+}
+.food-div-pizzas div p {
+  padding-right: 14px;
+}
+.food-div-pizzas ul {
+  padding-left: 20px;
+}
+.food-div-pizzas ul li {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 26px 74px;
+  margin-bottom: 10px;
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+}
+.food-div-pizzas span {
+  width: 44px;
+  border: 1px solid var(--smoky-black);
+  border-radius: 6px;
+  padding: 4px;
+  background-color: #f8f8f8;
+  text-align: center;
+  align-self: center;
+}
+.food-div-pizzas ul li p {
+  margin-top: 0;
+  font-weight: 400;
+}
+.food-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--smoky-black);
+}
+.food-div-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+/* }
+.food-div-buttons button {
+  width: 100px;
+  height: 40px;
+  border: 4px solid var(--yellow);
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  font-family: var(--font-family-descriptions);
+  font-size: var(--size-l);
+  font-weight: 700;
+  box-shadow: 0px 0em 8px 0px #f8f8f8; */
+}
+/*Estilos para la section Drinks*/
+.drinks-header {
+  width: 100%;
+  height: 12%;
+  background-color: var(--yellow);
+}
+.drinks-header img {
+  width: 150px;
+}
+.drinks {
+  display: flex;
+  flex-direction: column;
+  background-image: url(./assets/img/blackbg.jpg);
+  padding-left: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;   
+}
+.drinks h1 {
+  margin-bottom: 4px;
+  width: 120px;
+  font-family: 'Gochi Hand', cursive;
+  font-size: 2rem;
+  color: var(--yellow);
+}
+.drinks li {
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+  color: var(--yellow);
+}
+.drinks span {
+  width: 44px;
+  border: 1px solid var(--yellow);
+  border-radius: 6px;
+  padding: 4px;
+  background-color: #f8f8f8;
+  text-align: center;
+  color: #000000;
+}
+.drinks div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  font-family: var(--font-family-descriptions);
+  align-items: flex-end;
+  backdrop-filter: blur(14px);
+  position: fixed;
+}
+.drinks div p {
+  color: #f8f8f8;
+  margin-right: 26px;
+}
+.drinks ul {
+  padding-left: 20px;
+  padding-top: 60px;
+}
+.drinks ul li {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 26px 74px;
+  margin-bottom: 10px;
+  font-family: var(--font-family-descriptions);
+  font-weight: 700;
+}
+.drinks ul li p {
+  margin-top: 0;
+  font-weight: 400;
+}
