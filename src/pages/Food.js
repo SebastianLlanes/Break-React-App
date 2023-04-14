@@ -1,51 +1,49 @@
-import React from 'react';
-// import { useState, useEffect } from 'react';
-import Logo from '../assets/img/logo.png'
+import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Logo from '../assets/img/logo.png';
 import '../App.css';
 
 export default function Food() {
-    // Almacena la categoría actual
-var categoriaActual = '';
+  const categoriaActualRef = useRef(''); // Ref para almacenar la categoría actual
 
-// Agrega un evento de desplazamiento (scroll)
-window.addEventListener('scroll', function() {
-  // Obtén la altura de la ventana
-  var windowHeight = window.innerHeight;
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const categoriaPapasFritas = document.getElementById("papasFritas").getBoundingClientRect();
+      const categoriaHamburguesas = document.getElementById("hamburguesas").getBoundingClientRect();
+      const categoriaSandwiches = document.getElementById("sandwiches").getBoundingClientRect();
+      const categoriaMinutas = document.getElementById("minutas").getBoundingClientRect();
+      const categoriaPicadas = document.getElementById("picadas").getBoundingClientRect();
+      const categoriaPizzas = document.getElementById("pizzas").getBoundingClientRect();
 
-  // Obtén la posición de los elementos de categoría
-  var categoriaPapasFritas = document.getElementById("papasFritas").getBoundingClientRect();
-  var categoriaHamburguesas = document.getElementById("hamburguesas").getBoundingClientRect();
-  var categoriaSandwiches = document.getElementById("sandwiches").getBoundingClientRect();
-  var categoriaMinutas = document.getElementById("minutas").getBoundingClientRect();
-  var categoriaPicadas = document.getElementById("picadas").getBoundingClientRect();
-  var categoriaPizzas = document.getElementById("pizzas").getBoundingClientRect();
+      let nuevaCategoria = '';
+      if (categoriaPapasFritas.top >= 0 && categoriaPapasFritas.top <= windowHeight) {
+        nuevaCategoria = 'Papas Fritas';
+      } else if (categoriaHamburguesas.top >= 0 && categoriaHamburguesas.top <= windowHeight) {
+        nuevaCategoria = 'Hamburguesas';
+      } else if (categoriaSandwiches.top >= 0 && categoriaSandwiches.top <= windowHeight) {
+        nuevaCategoria = 'Sandwiches';
+      } else if (categoriaMinutas.top >= 0 && categoriaMinutas.top <= windowHeight) {
+        nuevaCategoria = 'Minutas';
+      } else if (categoriaPicadas.top >= 0 && categoriaPicadas.top <= windowHeight) {
+        nuevaCategoria = 'Picadas';
+      } else if (categoriaPizzas.bottom >= 0 && categoriaPizzas.top <= windowHeight) {
+        nuevaCategoria = 'Pizzas';
+      }
 
-  // Determina la nueva categoría en función de la posición del elemento visible en la ventana
-  var nuevaCategoria = '';
-  if (categoriaPapasFritas.top >= 0 && categoriaPapasFritas.top <= windowHeight) {
-    nuevaCategoria = 'Papas Fritas';
-  } else if (categoriaHamburguesas.top >= 0 && categoriaHamburguesas.top <= windowHeight) {
-    nuevaCategoria = 'Hamburguesas';
-  } else if (categoriaSandwiches.top >= 0 && categoriaSandwiches.top <= windowHeight) {
-    nuevaCategoria = 'Sandwiches';
-  } else if (categoriaMinutas.top >= 0 && categoriaMinutas.top <= windowHeight) {
-    nuevaCategoria = 'Minutas';
-  } else if (categoriaPicadas.top >= 0 && categoriaPicadas.top <= windowHeight) {
-    nuevaCategoria = 'Picadas';
-  } else if (categoriaPizzas.bottom >= 0 && categoriaPizzas.top <= windowHeight) {
-    nuevaCategoria = 'Pizzas';
-  }
+      if (nuevaCategoria !== categoriaActualRef.current) {
+        categoriaActualRef.current = nuevaCategoria;
+        const categoriaUsuarioElemento = document.getElementById("categoriaUsuario");
+        categoriaUsuarioElemento.innerHTML = nuevaCategoria;
+      }
+    }
 
-  // Verifica si la nueva categoría es diferente a la categoría actual
-  if (nuevaCategoria !== categoriaActual) {
-    // Actualiza el contenido del div de la etiqueta flotante con la nueva categoría
-    var categoriaUsuarioElemento = document.getElementById("categoriaUsuario");
-    categoriaUsuarioElemento.innerHTML = nuevaCategoria;
+    window.addEventListener('scroll', handleScroll);
 
-    // Actualiza la categoría actual con la nueva categoría
-    categoriaActual = nuevaCategoria;
-  }
-});
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
  const listaPapasFritas = [
         { sabor: 'Clásicas', precio: '$500' },
@@ -194,8 +192,12 @@ window.addEventListener('scroll', function() {
             </section>
             <footer className='food-footer'>
                 <div className='food-div-buttons'>
+                <Link to='/'>
                     <button>Portada</button>
+                </Link>
+                <Link to='/drinks'>
                     <button>Bebidas</button>
+                </Link>
                 </div>
             </footer>
         </>

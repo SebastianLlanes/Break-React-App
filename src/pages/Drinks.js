@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../assets/img/logo.png'
 import '../App.css';
 
@@ -45,8 +46,12 @@ export default function Drinks() {
         </section>
           <footer className="drinks-footer">
             <div className="drinks-div-buttons">
-              <button>Portada</button>
-              <button>Comidas</button>
+            <Link to='/'>
+                    <button>Portada</button>
+                </Link>
+                <Link to='/food'>
+                    <button>Comidas</button>
+                </Link>
             </div>
           </footer>
         

@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 import Logo from '../assets/img/logo.png';
+
 // import ButtonHome from '../components/ButtonHome';
 // import Footer from '../components/Footer';
 // import Header from '../components/Header';
@@ -11,8 +13,13 @@ export default function Home() {
                 <img src={Logo} alt='logo'/>
             </div>
            <div className='div-botones-portada'> 
-                <button>Comidas</button>
-                <button>Bebidas</button>
+                <Link to='/food'>
+                    <button>Comidas</button>
+                </Link>
+                <Link to='/drinks'>
+                    <button>Bebidas</button>
+                </Link>
+                
            </div>
         </div>
     )
